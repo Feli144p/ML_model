@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
+import os
 import joblib
 
-model = joblib.load("model_mlbb.joblib")
+# path model relatif ke file ini
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model_mlbb.joblib")
+
+# load model
+model = joblib.load(MODEL_PATH)
+
 st.title("MLBB Classification")
 kill = st.slider("Jumlah Kill",0,20)
 assist = st.slider("Jumlah Assist",0,20)
